@@ -90,7 +90,7 @@ export default {
         return {0,tonumber(ARGV[1]) - count,pttl}
   `,
   },
-  
+
   throttleNoIncr: {
     keys: 1,
     lua: `
@@ -114,7 +114,7 @@ export default {
         end
     `,
   },
-  
+
   throttleDecr: {
     keys: 1,
     lua: `
