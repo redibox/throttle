@@ -71,8 +71,11 @@ export default {
           key 1 -> key name - ip, user id or some unique key to throttle X by
           arg 1 -> limit
           arg 2 -> milliseconds
-          returns 0 if request is ok
-          returns 1 if request denied
+          returns {
+            throttled: ->  1 if should throttle, 0 if still within limit
+            remaining: ->  how many reqs left until throttled,
+            ttl:       ->  milliseconds remaining until limit resets
+          }
         ]]
         
         local count = redis.call('INCR', KEYS[1])
